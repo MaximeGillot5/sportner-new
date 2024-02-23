@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const LoginForm = () => {
+const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -13,10 +13,10 @@ const LoginForm = () => {
         username,
         password,
       });
-      const token = response.data.token; // Supposons que le backend renvoie un jeton JWT
-      // Stockez le jeton dans localStorage ou sessionStorage
+      const token = response.data.token;
       localStorage.setItem("token", token);
-      // Redirigez l'utilisateur vers une autre page ou mettez à jour l'état de l'application pour refléter la connexion réussie
+      // Appeler la fonction onLogin pour indiquer que l'utilisateur est connecté
+      onLogin();
     } catch (error) {
       setError("Nom d'utilisateur ou mot de passe incorrect");
     }
