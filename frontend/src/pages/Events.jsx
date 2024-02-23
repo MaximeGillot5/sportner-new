@@ -35,7 +35,6 @@ const Events = () => {
 
   return (
     <div>
-      <h1>Hello</h1>
       <EventsList events={events} setEvents={setEvents} />
       <EventForm onEventCreated={handleEventCreated} />
     </div>
