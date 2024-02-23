@@ -43,10 +43,15 @@ const EditEvent = ({ eventId, onUpdate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const token = localStorage.getItem("token");
+      const headers = {
+        Authorization: `"Bearer ${token}"`,
+      };
       // Envoi des données du formulaire à l'API Ruby pour mettre à jour l'événement
       const response = await axios.put(
         `http://localhost:3000/api/v1/events/${eventId}`,
-        formData
+        formData,
+        { headers: headers }
       );
       console.log("Réponse de l'API Ruby:", response.data);
       // Appeler la fonction onUpdate pour mettre à jour la liste des événements dans le composant parent

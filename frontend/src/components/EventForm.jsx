@@ -21,7 +21,6 @@ const EventForm = ({ onEventCreated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Envoi des données du formulaire à l'API Ruby
       const response = await axios.post(
         "http://localhost:3000/api/v1/events",
         formData

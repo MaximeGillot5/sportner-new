@@ -17,8 +17,13 @@ const Events = () => {
 
   const fetchEvents = async () => {
     try {
-      const data = await getAPIData();
-      setEvents(data);
+      // Appel Axios pour récupérer les événements avec les en-têtes d'Authorization
+      const response = await axios.get(
+        "http://localhost:3000/api/v1/events",
+        {}
+      );
+      // Mettre à jour les événements dans le composant avec les données récupérées de la réponse
+      setEvents(response.data);
     } catch (error) {
       console.error("Erreur lors du chargement des événements :", error);
     }

@@ -7,8 +7,12 @@ import EditEvent from "./EditEvent";
 const EventsList = (props) => {
   const handleUpdate = async () => {
     try {
-      // Mettre à jour la liste des événements en récupérant les données actualisées de l'API
-      const response = await axios.get("http://localhost:3000/api/v1/events");
+      // Appel Axios pour récupérer les événements avec les en-têtes d'Authorization
+      const response = await axios.get(
+        "http://localhost:3000/api/v1/events",
+        {}
+      );
+      // Mettre à jour les événements dans le composant parent
       props.setEvents(response.data);
     } catch (error) {
       console.error(
