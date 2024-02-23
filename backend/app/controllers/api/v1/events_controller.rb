@@ -1,5 +1,6 @@
 class Api::V1::EventsController < ApplicationController
   before_action :set_event, only: %i[ show update destroy ]
+  before_action :authorize_user, only: %i[ update destroy ]
 
   # GET /events
   def index
@@ -16,7 +17,7 @@ class Api::V1::EventsController < ApplicationController
   # POST /events
 # POST /events
 def create
-  @event = Event.new(event_params)
+  @event = current_user.events.build(event_params)
 
   if @event.save
     render json: @event, status: :created, location: api_v1_event_url(@event)
@@ -24,6 +25,7 @@ def create
     render json: @event.errors, status: :unprocessable_entity
   end
 end
+
 
 
   # PATCH/PUT /events/1
@@ -41,6 +43,11 @@ end
   end
 
   private
+  def authorize_user
+    unless @event.user_id == current_user.id
+      render json: { error: "Vous n'êtes pas autorisé à effectuer cette action." }, status: :forbidden
+    end
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
