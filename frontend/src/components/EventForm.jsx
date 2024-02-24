@@ -40,38 +40,40 @@ const EventForm = ({ onEventCreated }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Nom de l'événement:</label>
-        <input
-          type="text"
-          name="event_name"
-          value={formData.event_name}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label>Description:</label>
-        <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleChange}
-          required
-        ></textarea>
-      </div>
-      <div>
-        <label>Location:</label>
-        <input
-          type="text"
-          name="location"
-          value={formData.location}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button type="submit">Créer l'événement</button>
-    </form>
+    <div className="form_events">
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Nom de l'événement:</label>
+          <input
+            type="text"
+            name="event_name"
+            value={formData.event_name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Description:</label>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          ></textarea>
+        </div>
+        <div>
+          <label>Location:</label>
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Créer l'événement</button>
+      </form>
+    </div>
   );
 };
 

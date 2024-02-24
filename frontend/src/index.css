@@ -335,3 +335,67 @@
   color: black;
 }
 /* END FOOTER */
+
+/* EVENTS */
+
+/* EVENTS CARDS */
+
+.btn_delete {
+  display: flex;
+}
+
+.events_cards_div {
+  max-width: 130vh;
+  margin-left: 35%;
+}
+
+.form_events {
+  max-width: 70vh;
+  margin-bottom: 70%;
+}
+
+.events_cards_div h1 {
+  margin-left: 50px;
+}
+
+.events_card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+.events_card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin: 10px;
+  min-width: 150px;
+}
+
+.events_card p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 5px;
+  min-width: 150px;
+}
+
+.events_card button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.events_card button:hover {
+  background-color: #0056b3;
+}
+
+/* END EVENTS CARDS */
+
+/* END EVENTS */

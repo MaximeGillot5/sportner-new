@@ -23,25 +23,28 @@ const EventsList = (props) => {
   };
 
   return (
-    <div>
-      <h1>Events de l'API</h1>
+    <div className="events_cards_div">
+      <div className="events_left"></div>
+      <h1>Sessions disponibles</h1>
       {props.events.map((event) => {
         return (
-          <div key={event.id}>
+          <div key={event.id} className="events_card">
             <h2>{event.event_name}</h2>
             <p>{event.description}</p>
-            <p>{event.location}</p>
-            <DeleteEvent
-              eventId={event.id}
-              onDelete={() => handleUpdate(event.id)}
-            />
-            <Link to={`/edit-event/${event.id}`}>
+            <p>@ {event.location}</p>
+            <div className="btn_delete">
+              <DeleteEvent
+                eventId={event.id}
+                onDelete={() => handleUpdate(event.id)}
+              />
+            </div>
+            {/* <Link to={`/edit-event/${event.id}`}>
               <button>Editer</button>
             </Link>
             <EditEvent
               eventId={event.id}
               onUpdate={() => handleUpdate(event.id)} // Utilisez handleUpdate pour mettre à jour la liste des événements après édition
-            />
+            /> */}
           </div>
         );
       })}
