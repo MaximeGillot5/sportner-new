@@ -40,7 +40,7 @@ const EventForm = ({ onEventCreated }) => {
   };
 
   return (
-    <div className="form_events">
+    <div className="">
       <form onSubmit={handleSubmit}>
         <div>
           <label>Nom de l'événement:</label>

@@ -344,14 +344,19 @@
   display: flex;
 }
 
-.events_cards_div {
-  max-width: 130vh;
-  margin-left: 35%;
+.events_container {
+  display: flex;
 }
 
-.form_events {
-  max-width: 70vh;
-  margin-bottom: 70%;
+.left_form {
+  max-width: 20px;
+  margin-top: 250px;
+  margin-left: 50px;
+}
+
+.events_list {
+  max-width: 150vh;
+  margin-left: 35%;
 }
 
 .events_cards_div h1 {

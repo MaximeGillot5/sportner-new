@@ -2,6 +2,7 @@ import axios from "axios";
 import EventsList from "../components/EventsList";
 import { useEffect, useState } from "react";
 import EventForm from "../components/EventForm";
+import SideBar from "../components/SideBar";
 
 const API_URL = "http://localhost:3000/api/v1/events";
 
@@ -10,6 +11,7 @@ function getAPIData() {
 }
 
 const Events = () => {
+  const [selectedItem, setSelectedItem] = useState("");
   const [events, setEvents] = useState([]);
   useEffect(() => {
     fetchEvents();
@@ -33,10 +35,28 @@ const Events = () => {
     setEvents((prevEvents) => [...prevEvents, newEvent]);
   };
 
+  const handleSelectItem = (item) => {
+    setSelectedItem(item);
+    // Faire quelque chose avec l'élément sélectionné, par exemple, naviguer vers une autre page
+  };
+
   return (
-    <div>
-      <EventsList events={events} setEvents={setEvents} />
-      <EventForm onEventCreated={handleEventCreated} />
+    <div className="events_container">
+      <div className="left_form">
+        <SideBar onSelect={handleSelectItem} />
+      </div>
+      <div className="events_list">
+        {selectedItem === "Events" && (
+          <EventsList events={events} setEvents={setEvents} />
+        )}
+        {selectedItem === "Create" && (
+          <EventForm
+            onEventCreated={handleEventCreated}
+            events={events}
+            setEvents={setEvents}
+          />
+        )}
+      </div>
     </div>
   );
 };
