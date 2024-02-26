@@ -40,9 +40,10 @@ const EventForm = ({ onEventCreated }) => {
   };
 
   return (
-    <div className="">
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="event-form-container">
+      <h2>Créer un événement</h2>
+      <form onSubmit={handleSubmit} className="event-form">
+        <div className="form-group">
           <label>Nom de l'événement:</label>
           <input
             type="text"
@@ -52,7 +53,7 @@ const EventForm = ({ onEventCreated }) => {
             required
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Description:</label>
           <textarea
             name="description"
@@ -61,7 +62,7 @@ const EventForm = ({ onEventCreated }) => {
             required
           ></textarea>
         </div>
-        <div>
+        <div className="form-group">
           <label>Location:</label>
           <input
             type="text"
@@ -71,10 +72,11 @@ const EventForm = ({ onEventCreated }) => {
             required
           />
         </div>
-        <button type="submit">Créer l'événement</button>
+        <button type="submit" className="btn-submit">
+          Créer l'événement
+        </button>
       </form>
     </div>
   );
 };
-
 export default EventForm;

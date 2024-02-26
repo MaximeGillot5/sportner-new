@@ -14,9 +14,13 @@ const LoginForm = ({ onLogin }) => {
         password,
       });
       const token = response.data.token;
-      localStorage.setItem("token", token);
-      // Appeler la fonction onLogin pour indiquer que l'utilisateur est connecté
-      onLogin();
+      if (token) {
+        localStorage.setItem("token", token);
+        // Appeler la fonction onLogin pour indiquer que l'utilisateur est connecté
+        onLogin();
+      } else {
+        setError("Nom d'utilisateur ou mot de passe incorrect");
+      }
     } catch (error) {
       setError("Nom d'utilisateur ou mot de passe incorrect");
     }

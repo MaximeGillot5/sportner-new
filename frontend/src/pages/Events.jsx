@@ -3,6 +3,7 @@ import EventsList from "../components/EventsList";
 import { useEffect, useState } from "react";
 import EventForm from "../components/EventForm";
 import SideBar from "../components/SideBar";
+import UserEvents from "../components/UserEvents";
 
 const API_URL = "http://localhost:3000/api/v1/events";
 
@@ -51,6 +52,13 @@ const Events = () => {
         )}
         {selectedItem === "Create" && (
           <EventForm
+            onEventCreated={handleEventCreated}
+            events={events}
+            setEvents={setEvents}
+          />
+        )}
+        {selectedItem === "MyEvents" && (
+          <UserEvents
             onEventCreated={handleEventCreated}
             events={events}
             setEvents={setEvents}
